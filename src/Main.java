@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class Main {
+    @SuppressWarnings("ConvertToTryWithResources")
     public static void main(String[] args) {
         boolean exit = false;
         Scanner scanner = new Scanner(System.in);
@@ -13,7 +14,7 @@ public class Main {
             System.out.println("4. Exit");
             System.out.print("Enter your choice: ");
 
-            int choice = -1;
+            int choice;
             try {
                 choice = Integer.parseInt(scanner.nextLine());
             } catch (NumberFormatException e) {
@@ -22,21 +23,14 @@ public class Main {
             }
 
             switch (choice) {
-                case 1:
-                    greetUser(scanner);
-                    break;
-                case 2:
-                    displayCurrentTime();
-                    break;
-                case 3:
-                    performCalculation(scanner);
-                    break;
-                case 4:
+                case 1 -> greetUser(scanner);
+                case 2 -> displayCurrentTime();
+                case 3 -> performCalculation(scanner);
+                case 4 -> {
                     exit = true;
                     System.out.println("Exiting the program. Goodbye!");
-                    break;
-                default:
-                    System.out.println("Invalid choice! Please select an option from 1 to 4.");
+                }
+                default -> System.out.println("Invalid choice! Please select an option from 1 to 4.");
             }
         }
 
@@ -60,33 +54,36 @@ public class Main {
         System.out.print("Enter the second number: ");
         double num2 = getValidDouble(scanner);
 
-        System.out.print("Choose an operation (+, -, *, /): ");
+        System.out.print("Choose an operation (+, -, *, /, //): ");
         String operation = scanner.nextLine();
 
         double result;
         switch (operation) {
-            case "+":
+            case "+" -> {
                 result = num1 + num2;
                 System.out.println("Result: " + result);
-                break;
-            case "-":
+            }
+            case "-" -> {
                 result = num1 - num2;
                 System.out.println("Result: " + result);
-                break;
-            case "*":
+            }
+            case "*" -> {
                 result = num1 * num2;
                 System.out.println("Result: " + result);
-                break;
-            case "/":
+            }
+            case "/" -> {
                 if (num2 == 0) {
                     System.out.println("Error! Division by zero is undefined.");
                 } else {
                     result = num1 / num2;
                     System.out.println("Result: " + result);
                 }
-                break;
-            default:
-                System.out.println("Invalid operation! Please select +, -, *, or /.");
+            }
+            case "//" -> {
+                result = (int)(num1 / num2);
+                System.out.println("Result: " + result);
+            }
+            default -> System.out.println("Invalid operation! Please select +, -, *, / or //.");
         }
     }
 
