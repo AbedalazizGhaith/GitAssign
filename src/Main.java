@@ -12,7 +12,7 @@ public class Main {
             System.out.println("2. Display Current Time");
             System.out.println("3. Perform Calculation");
             System.out.println("4. Exit");
-            System.out.print("Enter your choice: ");
+            System.out.print("Enter your ch: ");
 
             int choice;
             try {
@@ -54,7 +54,9 @@ public class Main {
         System.out.print("Enter the second number: ");
         double num2 = getValidDouble(scanner);
 
-        System.out.print("Choose an operation (+, -, *, /, %): ");
+
+        System.out.print("Choose an operation (+, -, *, /, //, %): ");
+
         String operation = scanner.nextLine();
 
         double result;
@@ -79,11 +81,18 @@ public class Main {
                     System.out.println("Result: " + result);
                 }
             }
+
             case "%" -> {
                 result = num1 % num2;
-                System.out.println("Result: " + result);
+                break;
             }
-            default -> System.out.println("Invalid operation! Please select +, -, *, / or //.");
+
+            case "//" -> {
+                result = (int)(num1 / num2);
+                System.out.println("Result: " + result);
+                break;
+            }
+            default -> System.out.println("Invalid operation! Please select +, -, *, /, // or %.");
         }
     }
 
