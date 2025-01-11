@@ -14,7 +14,8 @@ public class Main {
             System.out.println("2. Display Current Time");
             System.out.println("3. Perform Calculation");
             System.out.println("4. Exit");
-            System.out.print("Enter your ch: ");
+            System.out.print("Enter your choice: ");//hot fixed the text
+	    
 
             int choice;
             try {
