@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+//code had tested from QA team
+
 public class Main {
     @SuppressWarnings("ConvertToTryWithResources")
     public static void main(String[] args) {
@@ -84,13 +86,11 @@ public class Main {
 
             case "%" -> {
                 result = num1 % num2;
-                break;
             }
 
             case "//" -> {
                 result = (int)(num1 / num2);
                 System.out.println("Result: " + result);
-                break;
             }
             default -> System.out.println("Invalid operation! Please select +, -, *, /, // or %.");
         }
